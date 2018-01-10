@@ -1,0 +1,60 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>Getting Current Page Title and Link</title>
+    <style type="text/css">
+      body {
+        margin: 10px;
+        white-space: nowrap;
+      }
+
+      h1 {
+        font-size: 15px;
+      }
+
+      #container {
+        align-items: center;
+        justify-content: space-between;
+      }
+	  
+	.tooltiptext {
+		width: 120px;
+		background-color: black;
+		color: #fff;
+		text-align: center;
+		border-radius: 6px;
+		padding: 5px 0;
+
+		/* Position the tooltip */
+		position: absolute;
+		z-index: 1;
+	}
+
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+    -->
+	<script src='jquery.min.js'></script>
+    <script src="popup.js"></script>
+  </head>
+
+  <body>
+    <h1>Getting Current Page Title and Link</h1>
+    <div id="container">
+     <textarea rows="4" cols="50" id="LinkTextarea">
+	 </textarea>
+	 <br/>
+	 <button id="Copybutton" style="color: #fff; background-color: #5cb85c; border-color: #4cae4c;display: inline-block; padding: 6px 12px; margin-bottom: 0; font-size: 14px; font-weight: 400; line-height: 1.42857143; text-align: center; white-space: nowrap; vertical-align: middle; -ms-touch-action: manipulation; touch-action: manipulation; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; background-image: none; border: 1px solid transparent; border-radius: 4px;" >Copy</button>
+    &nbsp;&nbsp;&nbsp; <span class="tooltiptext" id="TooltipId"  style="display:none;" >Copied</span>
+	</div>
+  </body>
+</html>
